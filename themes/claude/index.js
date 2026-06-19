@@ -83,32 +83,6 @@ const LayoutBase = props => {
   const tocEnable = siteConfig('CLAUDE_TOC_ENABLE', true, CONFIG)
   const isHomePage = router?.pathname === '/'
 
-  useEffect(() => {
-    const shouldBlockImageAction = target => {
-      return target instanceof Element && Boolean(target.closest('#theme-claude img'))
-    }
-
-    const handleImageContextMenu = e => {
-      if (shouldBlockImageAction(e.target)) {
-        e.preventDefault()
-      }
-    }
-
-    const handleImageDragStart = e => {
-      if (shouldBlockImageAction(e.target)) {
-        e.preventDefault()
-      }
-    }
-
-    document.addEventListener('contextmenu', handleImageContextMenu, true)
-    document.addEventListener('dragstart', handleImageDragStart, true)
-
-    return () => {
-      document.removeEventListener('contextmenu', handleImageContextMenu, true)
-      document.removeEventListener('dragstart', handleImageDragStart, true)
-    }
-  }, [])
-
   return (
     <ThemeGlobalSimple.Provider value={{ searchModal }}>
       <div
