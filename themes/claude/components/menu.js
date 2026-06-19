@@ -41,13 +41,6 @@ const normalizeMenu = links =>
 export function getClaudeMenuLinks({ locale, customNav, customMenu }) {
   let links = [
     {
-      icon: 'fas fa-pen-to-square',
-      name: locale.COMMON.NEW_ARTICLE || '新建文章',
-      href: 'https://www.notion.so/6f8dcd22141a830db0cf01191d4f7472',
-      target: '_blank',
-      show: true
-    },
-    {
       icon: 'fas fa-archive',
       name: locale.NAV.ARCHIVE,
       href: '/archive',
