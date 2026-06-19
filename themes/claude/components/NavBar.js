@@ -164,7 +164,7 @@ export default function NavBar(props) {
           </div>
 
           <div className='claude-profile-heading'>
-            <div className='claude-profile-name'>{author}</div>
+            <SmartLink href='/' className='claude-profile-name'>{author}</SmartLink>
           </div>
 
           {bio && <div className='claude-profile-bio'>{bio}</div>}
