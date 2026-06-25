@@ -33,6 +33,11 @@ export default function ArticleInfo(props) {
                   {post.date?.start_date || post.createdTime}
                 </SmartLink>
               </span>
+              {post?.lastEditedDate && post.lastEditedDate !== post.publishDate && (
+                <span className='text-sm text-gray-400 dark:text-gray-500'>
+                  · 更新于 {formatDateFmt(post.lastEditedDate, 'yyyy-MM-dd HH:mm')}
+                </span>
+              )}
             </div>
 
             <div className='text-sm'>
