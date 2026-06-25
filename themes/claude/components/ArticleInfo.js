@@ -34,7 +34,7 @@ export default function ArticleInfo(props) {
             </span>
             {post?.lastEditedDate && post.lastEditedDate !== post.publishDate && (
               <span className='text-sm text-gray-400 dark:text-gray-500 whitespace-nowrap'>
-                {'更新于 '}{formatDateFmt(post.lastEditedDate, 'yyyy-MM-dd HH:mm')}
+                {'更新于 '}{formatDateFmt(post.lastEditedDate, 'yyyy-MM-dd hh:mm')}
               </span>
             )}
 
