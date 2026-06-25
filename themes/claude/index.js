@@ -92,7 +92,7 @@ const LayoutBase = props => {
 
         {siteConfig('SIMPLE_TOP_BAR', null, CONFIG) && <TopBar {...props} />}
 
-        <div className='flex flex-1 overflow-hidden'>
+        <div className='flex flex-1 relative'>
           {/* ====== LEFT SIDEBAR — 导航栏 (桌面端) ====== */}
           {/* 使用 SidebarContent (React.memo) 避免客户端导航时重新加载侧边栏 */}
           <div className='claude-sidebar hidden md:flex md:flex-col md:flex-shrink-0 md:w-[296px] lg:w-[320px] h-full overflow-y-auto overflow-x-hidden'>
@@ -130,10 +130,14 @@ const LayoutBase = props => {
             </div>
           </div>
 
-          {/* ====== RIGHT SIDEBAR — 目录 (桌面端，仅文章页) ====== */}
+          {/* ====== RIGHT SIDEBAR — 浮动目录 (桌面端，仅文章页) ====== */}
           {tocEnable && hasToc && (
-            <div className='hidden lg:flex lg:flex-col lg:flex-shrink-0 lg:w-[240px] h-full overflow-hidden pt-16 pr-8 pl-2'>
-              <Catalog post={props.post} />
+            <div className='hidden lg:block absolute right-0 top-0 h-full pointer-events-none' style={{ width: '240px' }}>
+              <div className='sticky top-16 pointer-events-auto pr-6 pl-2'>
+                <div className='max-h-[calc(100vh-6rem)] overflow-y-auto claude-content-scroll'>
+                  <Catalog post={props.post} />
+                </div>
+              </div>
             </div>
           )}
         </div>
