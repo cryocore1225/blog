@@ -2537,23 +2537,23 @@ const Style = () => {
        * SCROLLBAR — Global minimalist
        * ======================================== */
       ::-webkit-scrollbar {
-        width: 5px; height: 5px;
+        width: 8px; height: 8px;
       }
       ::-webkit-scrollbar-track {
         background: transparent;
       }
       ::-webkit-scrollbar-thumb {
-        background: rgba(0, 0, 0, 0.08);
-        border-radius: 3px;
+        background: rgba(0, 0, 0, 0.18);
+        border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: rgba(0, 0, 0, 0.15);
+        background: rgba(0, 0, 0, 0.30);
       }
       .dark ::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.15);
       }
       .dark ::-webkit-scrollbar-thumb:hover {
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.25);
       }
 
       /* ========================================

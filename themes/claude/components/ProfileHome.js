@@ -609,20 +609,22 @@ export default function ProfileHome(props) {
   return (
     <div className='claude-profile-home'>
       <div className='claude-profile-home-main'>
-        <div className='claude-readme-card'>
-          <div className='claude-readme-card-meta'>
-            README
-            <span className='claude-readme-card-meta-ext'>.md</span>
+        {(readmeHtml || readmeExcerpt) ? (
+          <div className='claude-readme-card'>
+            <div className='claude-readme-card-meta'>
+              README
+              <span className='claude-readme-card-meta-ext'>.md</span>
+            </div>
+            {readmeHtml ? (
+              <div
+                className='markdown-body'
+                dangerouslySetInnerHTML={{ __html: readmeHtml }}
+              />
+            ) : (
+              <p className='claude-readme-card-excerpt'>{readmeExcerpt}</p>
+            )}
           </div>
-          {readmeHtml ? (
-            <div
-              className='markdown-body'
-              dangerouslySetInnerHTML={{ __html: readmeHtml }}
-            />
-          ) : (
-            <p className='claude-readme-card-excerpt'>{readmeExcerpt}</p>
-          )}
-        </div>
+        ) : null}
 
         <div className='claude-profile-home-timeline'>
           <div className='claude-profile-home-timeline-main'>
@@ -802,14 +804,7 @@ export default function ProfileHome(props) {
                             <details className='claude-activity-details' open>
                               <summary className='claude-activity-summary-toggle'>
                                 <span className='claude-activity-item-summary'>
-                                  Made {group.commitSummary.commitCount}{' '}
-                                  {pluralize(group.commitSummary.commitCount, 'commit')} in{' '}
-                                  {group.commitSummary.repositoryCount}{' '}
-                                  {pluralize(
-                                    group.commitSummary.repositoryCount,
-                                    'repository',
-                                    'repositories'
-                                  )}
+                                  更新了 {group.commitSummary.commitCount} 篇文档
                                 </span>
                                 <span className='claude-activity-summary-icons'>
                                   <span className='Details-content--open'>
@@ -871,12 +866,7 @@ export default function ProfileHome(props) {
                             <details className='claude-activity-details' open>
                               <summary className='claude-activity-summary-toggle'>
                                 <span className='claude-activity-item-summary'>
-                                  Created {group.createSummary.repositoryCount}{' '}
-                                  {pluralize(
-                                    group.createSummary.repositoryCount,
-                                    'repository',
-                                    'repositories'
-                                  )}
+                                  创建了 {group.createSummary.repositoryCount} 篇文档
                                 </span>
                                 <span className='claude-activity-summary-icons'>
                                   <span className='Details-content--open'>
