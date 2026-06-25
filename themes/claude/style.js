@@ -2607,6 +2607,27 @@ const Style = () => {
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+      /* Content area — visible scrollbar */
+      .claude-content-scroll::-webkit-scrollbar {
+        width: 10px; height: 10px;
+      }
+      .claude-content-scroll::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 5px;
+      }
+      .claude-content-scroll::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+      }
+      .claude-content-scroll::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.40);
+      }
+      .dark .claude-content-scroll::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.20);
+      }
+      .dark .claude-content-scroll::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.35);
+      }
     `}</style>
   )
 }
