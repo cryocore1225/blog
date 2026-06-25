@@ -21,43 +21,32 @@ export default function ArticleInfo(props) {
         {post?.title}
       </h2>
 
-      <div className='flex flex-wrap text-[var(--primary-color)] dark:text-gray-300'>
+      <div className='flex flex-wrap text-[var(--primary-color)] dark:text-gray-300 gap-x-6 gap-y-1'>
         {post?.type !== 'Page' && (
-          <header className='text-md text-[var(--primary-color)] dark:text-gray-300 flex-wrap flex items-center leading-6'>
-            <div className='space-x-2'>
-              <span className='text-sm'>
-                发布于
-                <SmartLink
-                  className='p-1 hover:text-red-400 transition-all duration-200'
-                  href={`/archive#${formatDateFmt(post?.publishDate, 'yyyy-MM')}`}>
-                  {post.date?.start_date || post.createdTime}
-                </SmartLink>
+          <header className='text-md text-[var(--primary-color)] dark:text-gray-300 flex-wrap flex items-center leading-6 gap-x-4 gap-y-1'>
+            <span className='text-sm whitespace-nowrap'>
+              {'发布于 '}
+              <SmartLink
+                className='hover:text-red-400 transition-all duration-200'
+                href={`/archive#${formatDateFmt(post?.publishDate, 'yyyy-MM')}`}>
+                {post.date?.start_date || post.createdTime}
+              </SmartLink>
+            </span>
+            {post?.lastEditedDate && post.lastEditedDate !== post.publishDate && (
+              <span className='text-sm text-gray-400 dark:text-gray-500 whitespace-nowrap'>
+                {'更新于 '}{formatDateFmt(post.lastEditedDate, 'yyyy-MM-dd HH:mm')}
               </span>
-              {post?.lastEditedDate && post.lastEditedDate !== post.publishDate && (
-                <span className='text-sm text-gray-400 dark:text-gray-500'>
-                  · 更新于 {formatDateFmt(post.lastEditedDate, 'yyyy-MM-dd HH:mm')}
-                </span>
-              )}
-            </div>
+            )}
 
-            <div className='text-sm'>
-              {/* {post.category && (
-                <SmartLink href={`/category/${post.category}`} className='p-1'>
-                  {' '}
-                  <span className='hover:text-red-400 transition-all duration-200'>
-                    <i className='fa-regular fa-folder mr-0.5' />
-                    {post.category}
-                  </span>
-                </SmartLink>
-              )} */}
+            <div className='text-sm flex flex-wrap gap-x-1'>
               {post?.tags &&
                 post?.tags?.length > 0 &&
                 post?.tags.map(t => (
                   <SmartLink
                     key={t}
                     href={`/tag/${t}`}
-                    className=' hover:text-red-400 transition-all duration-200'>
-                    <span> #{t}</span>
+                    className='hover:text-red-400 transition-all duration-200'>
+                    <span>#{t}</span>
                   </SmartLink>
                 ))}
             </div>
