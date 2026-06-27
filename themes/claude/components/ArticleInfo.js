@@ -29,10 +29,10 @@ export default function ArticleInfo(props) {
               <SmartLink
                 className='hover:text-red-400 transition-all duration-200'
                 href={`/archive#${formatDateFmt(post?.publishDate, 'yyyy-MM')}`}>
-                {post.date?.start_date || post.createdTime}
+                {formatDateFmt(post?.publishDate, 'yyyy-MM-dd hh:mm')}
               </SmartLink>
             </span>
-            {post?.lastEditedDate && post.lastEditedDate !== post.publishDate && (
+            {post?.lastEditedDate && post.lastEditedDate.getTime() !== post?.publishDate && (
               <span className='text-sm text-gray-400 dark:text-gray-500 whitespace-nowrap'>
                 {'更新于 '}{formatDateFmt(post.lastEditedDate, 'yyyy-MM-dd hh:mm')}
               </span>
