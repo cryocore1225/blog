@@ -7,45 +7,6 @@ const Style = () => {
   return (
     <style jsx global>{`
       /* ========================================
-       * FONTS
-       * ======================================== */
-      @font-face {
-        font-family: 'Anthropic Serif Display';
-        src: url('/themes/claude/fonts/AnthropicSerif-Display-Regular-Static.otf') format('opentype');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Anthropic Serif Display';
-        src: url('/themes/claude/fonts/AnthropicSerif-Display-Semibold-Static.otf') format('opentype');
-        font-weight: 600;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Anthropic Sans Text';
-        src: url('/themes/claude/fonts/AnthropicSans-Text-Regular-Static.otf') format('opentype');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Anthropic Sans Text';
-        src: url('/themes/claude/fonts/AnthropicSans-Text-Medium-Static.otf') format('opentype');
-        font-weight: 500;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Anthropic Sans Text';
-        src: url('/themes/claude/fonts/AnthropicSans-Text-Semibold-Static.otf') format('opentype');
-        font-weight: 600;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      /* ========================================
        * CSS VARIABLES
        * ======================================== */
       :root {
