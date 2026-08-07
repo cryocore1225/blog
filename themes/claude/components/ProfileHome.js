@@ -261,7 +261,7 @@ export default function ProfileHome(props) {
   }, [contributionEvents])
 
   const [selectedYear, setSelectedYear] = useState(() => years[0] || new Date().getFullYear())
-  const [isYearModeActive, setIsYearModeActive] = useState(false)
+  const [isYearModeActive, setIsYearModeActive] = useState(true)
   const [selectedActivityDayKey, setSelectedActivityDayKey] = useState('')
 
   useEffect(() => {
