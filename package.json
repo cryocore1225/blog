@@ -123,6 +123,7 @@
     "jest-junit": "^16.0.0",
     "next-sitemap": "^1.9.12",
     "patch-package": "^8.0.1",
+    "prismjs": "^1.29.0",
     "postcss": "^8.5.15",
     "prettier": "^3.8.3",
     "sharp": "^0.34.5",
